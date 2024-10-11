@@ -1,0 +1,8 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.headphoneContainer {
+  .headphones {
+    @include flex-center($direction: column-reverse);
+    margin-top: 4rem;
+  }
+}

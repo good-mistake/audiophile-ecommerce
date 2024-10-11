@@ -1,0 +1,79 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+
+.button {
+  min-width: 160px;
+  @include breakpoint(550px) {
+    min-width: 125px;
+  }
+  min-height: 48px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: $text-uppercase;
+  letter-spacing: $letter-space-114;
+  font-weight: $font-weight-bold;
+  font-size: $size-13;
+
+  &.light {
+    background-color: $primary-color;
+    color: $color-white;
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+  &.border {
+    background-color: $color-white;
+    border: 1px solid $primary-color-dark;
+    color: $secondary-color-dark;
+    &:hover {
+      color: $color-white;
+      background-color: $secondary-color-dark;
+    }
+  }
+  &.dark {
+    background-color: $primary-color-dark;
+    color: $color-white;
+    &:hover {
+      background-color: $color-white;
+      border: 1px solid $primary-color-dark;
+      color: $secondary-color-dark;
+    }
+  }
+  &.shop {
+    @include flex-center;
+    margin-top: 1rem;
+
+    img {
+      margin-left: 8px;
+    }
+    color: $primary-color-dark;
+    opacity: 0.5;
+    &:hover {
+      color: $secondary-color;
+      opacity: 1;
+    }
+  }
+  &.goBack {
+    @include flex-center;
+    margin-top: 1rem;
+
+    img {
+      margin-left: 8px;
+    }
+    color: $primary-color-dark;
+    opacity: 0.5;
+    &:hover {
+      color: $secondary-color;
+      opacity: 1;
+    }
+    @include breakpoint(770px) {
+      width: 93%;
+      margin: 0 auto;
+      justify-content: flex-start;
+      margin-top: $font-size-56;
+    }
+    @include breakpoint(1200px) {
+      width: 77%;
+    }
+  }
+}

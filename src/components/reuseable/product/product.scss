@@ -1,0 +1,90 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.productContainer {
+  width: 89%;
+  margin: $size-2 0;
+  @include flex-center($direction: column);
+  text-align: center;
+  > div {
+    &:nth-child(2) {
+      @include flex-center($direction: column);
+      @include breakpoint(770px) {
+        @include flex-center(
+          $direction: column,
+          $align: flex-start,
+          $justify: space-between
+        );
+        text-align: left;
+        width: 40%;
+        button {
+          width: 160px;
+          margin-top: $size-16;
+        }
+      }
+    }
+  }
+  &:nth-child(2) {
+    @include breakpoint(770px) {
+      @include flex-center($direction: row, $justify: space-between);
+    }
+  }
+  @include breakpoint(550px) {
+    width: 90%;
+  }
+  @include breakpoint(770px) {
+    width: 93%;
+    @include flex-center($direction: row-reverse, $justify: space-between);
+  }
+  @include breakpoint(1200px) {
+    width: 77%;
+  }
+
+  img {
+    @include border-radius;
+    @include breakpoint(770px) {
+      max-width: 540px;
+      height: 560px;
+    }
+  }
+  h3 {
+    font-size: $font-size-28;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-space-114;
+    width: 80%;
+    text-transform: $text-uppercase;
+    @include breakpoint(550px) {
+      width: 50%;
+      font-size: $font-size-40;
+      line-height: 44px;
+    }
+    @include breakpoint(770px) {
+      width: 100%;
+    }
+  }
+  p {
+    opacity: 0.6;
+    font-size: $font-size-body;
+    line-height: $line-height-25;
+    font-weight: $font-weight-medium;
+    margin: 1.5rem 0;
+    @include breakpoint(550px) {
+      width: 80%;
+    }
+    @include breakpoint(770px) {
+      width: 100%;
+      margin-top: $size-2;
+    }
+  }
+  .new {
+    color: $primary-color;
+    letter-spacing: 10px;
+    font-size: $size-14;
+    font-weight: $font-weight-regular;
+    opacity: 1;
+    margin: $size-16 0;
+    margin-top: $size-2;
+    @include breakpoint(770px) {
+      margin-top: 0;
+    }
+  }
+}

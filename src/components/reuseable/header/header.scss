@@ -1,0 +1,247 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+header {
+  background-color: $primary-color-dark;
+  color: $color-white;
+  position: relative;
+  z-index: 2;
+
+  .headerContainer {
+    @include flex-center($justify: space-between, $align: flex-end);
+    position: $position-rel;
+    z-index: 1001;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba($color-white, 0.2);
+    background-color: $primary-color-dark;
+
+    .tabletNav {
+      @include flex-center;
+      a {
+        margin-left: $font-size-36;
+      }
+    }
+    @include breakpoint(550px) {
+      padding: 2rem 2.35rem;
+    }
+    @include breakpoint(770px) {
+      margin: 0 auto;
+      background-color: inherit;
+      padding: $size-2 0;
+      width: 93%;
+    }
+    @include breakpoint(1200px) {
+      @include flex-center($justify: space-between);
+      width: 77%;
+    }
+    .headerDesktop {
+      width: 43%;
+      @include flex-center($justify: space-between);
+      li {
+        font-size: $size-13;
+        letter-spacing: $letter-space-2;
+        line-height: $line-height-25;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  &.home {
+    background: url("../../../../public/assets/home/mobile/image-header.jpg");
+
+    background-color: $primary-color-dark;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+    min-height: 600px;
+    position: $position-rel;
+    &::before {
+      content: "";
+      position: $position-abs;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($primary-color-dark, 0.5);
+      z-index: 1;
+    }
+    .headerHome {
+      @include flex-center(
+        $direction: column,
+        $justify: center,
+        $align: center
+      );
+      min-height: 500px;
+      text-align: center;
+      position: $position-rel;
+      z-index: 2;
+
+      .new {
+        letter-spacing: 10px;
+        color: rgba($color-white, 0.49);
+        font-size: $size-14;
+        mix-blend-mode: normal;
+        margin-top: 2rem;
+      }
+      h1 {
+        width: 100%;
+        font-size: $size-36;
+        font-weight: $font-weight-bold;
+        margin: $size-16 0;
+        line-height: $font-size-36;
+        letter-spacing: $letter-space-129;
+        text-transform: $text-uppercase;
+      }
+      .desc {
+        width: 80%;
+        opacity: 0.65;
+        font-size: $font-size-body;
+        line-height: $line-height-25;
+        font-weight: $font-weight-medium;
+        margin-top: $size-12;
+      }
+      button {
+        margin-top: 2rem;
+      }
+    }
+    @include breakpoint(550px) {
+      background: url("../../../../public/assets/home/tablet/image-header.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      .headerHome {
+        min-height: 729px;
+
+        h1 {
+          width: 70%;
+          font-size: $font-size-56;
+          line-height: $line-height-58;
+          letter-spacing: $letter-space-2;
+        }
+        .desc {
+          width: 54%;
+          opacity: 0.75;
+          font-size: $font-size-body;
+          margin-top: $size-14;
+        }
+        button {
+          margin-top: 3rem;
+        }
+      }
+    }
+    @include breakpoint(770px) {
+      background: url("../../../../public/assets/home/desktop/image-hero.jpg");
+      background-size: cover;
+      background-color: #141414;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      .headerHome {
+        min-height: 510px;
+        width: 55%;
+        text-align: left;
+        margin-top: $size-2;
+        @include flex-center(
+          $direction: column,
+          $align: center,
+          $justify: flex-start
+        );
+
+        .new {
+          margin-bottom: $size-16;
+        }
+        .desc {
+          opacity: 0.75;
+          margin-top: $size-16;
+        }
+        .new,
+        h1,
+        .desc,
+        a {
+          width: 88%;
+        }
+
+        button {
+          width: 40%;
+        }
+      }
+    }
+    @include breakpoint(1200px) {
+      .headerHome {
+        min-height: 629px;
+        width: 50%;
+        text-align: left;
+        .new {
+          margin-top: 7rem;
+        }
+        .new,
+        h1,
+        .desc,
+        a {
+          width: 55%;
+        }
+
+        button {
+          width: 40%;
+        }
+      }
+    }
+  }
+  &.primary {
+    min-height: 192px;
+    @include flex-center(column, space-between, unset);
+    @include breakpoint(550px) {
+      height: 310px;
+    }
+    h1 {
+      font-size: $font-size-28;
+      letter-spacing: $letter-space-2;
+      text-transform: $text-uppercase;
+      font-weight: $font-weight-bold;
+      text-align: center;
+      margin-bottom: 2rem;
+      @include breakpoint(550px) {
+        margin: auto;
+        font-size: $font-size-40;
+        letter-spacing: $letter-space-114;
+        line-height: 44px;
+      }
+    }
+  }
+  &.secondary {
+    h1 {
+      display: none;
+      height: 90px;
+    }
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    &.show {
+      opacity: 0.8;
+      visibility: visible;
+      transition: opacity 0.3s ease-in-out, visibility 0s;
+    }
+  }
+  .hamburger {
+    background-color: #000;
+    z-index: 2;
+    align-self: center;
+    img {
+      &.open {
+        transform: rotate(360deg);
+        background-color: transparent;
+      }
+      &.close {
+        transform: rotate(360deg);
+      }
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

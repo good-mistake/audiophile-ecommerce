@@ -1,0 +1,112 @@
+@import "../../../../styles/abstract/mixins.scss";
+@import "../../../../styles/abstract/variables.scss";
+nav {
+  transition: all 0.5s ease;
+  width: 100%;
+  z-index: 1000;
+  @include breakpoint(550px) {
+    margin: 0 auto;
+    width: 89%;
+  }
+  @include breakpoint(1200px) {
+    width: 77%;
+  }
+  @include breakpoint(770px) {
+    width: 93%;
+  }
+
+  ul {
+    z-index: 4;
+    @include flex-center($direction: column);
+    transition: all 0.5s ease;
+    opacity: 1;
+    width: 100%;
+    @include breakpoint(550px) {
+      @include flex-center($direction: row, $justify: space-between);
+    }
+    &.closeUl {
+      top: 1000px;
+    }
+    &.openUl {
+      top: 75px;
+      position: $position-abs;
+      height: 850px;
+      background-color: $color-white;
+      @include breakpoint(550px) {
+        left: 0;
+        height: 340px;
+        padding: 0 2rem;
+        @include flex-center(
+          $direction: row,
+          $align: flex-end,
+          $justify: space-between
+        );
+      }
+    }
+
+    li {
+      position: $position-rel;
+      border-radius: 8px;
+      width: 87%;
+      text-align: center;
+      min-height: 165px;
+      margin: 3rem 0;
+      background-color: $primary-color-light;
+      @include flex-center(column, flex-end, center);
+      opacity: 1;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      @include breakpoint(550px) {
+        width: 32%;
+      }
+      @include breakpoint(770px) {
+        height: 202px;
+
+        a {
+          .button.shop {
+            margin-top: 0;
+          }
+        }
+      }
+      .nameAndArrow {
+        @include flex-center;
+      }
+      .cover {
+        position: $position-abs;
+        border-radius: 8px;
+        top: -71px;
+        height: 100%;
+        @include breakpoint(770px) {
+        }
+      }
+      p {
+        font-size: $font-size-body;
+        letter-spacing: $letter-space-114;
+        font-weight: $font-weight-bold;
+        color: $primary-color-dark;
+      }
+      button {
+        margin-bottom: $size-14;
+      }
+      &:nth-child(1) {
+        margin-top: 7rem;
+        transition-delay: 0.4s;
+        @include breakpoint(550px) {
+          margin-top: 10rem;
+        }
+      }
+      &:nth-child(2) {
+        transition-delay: 0.5s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.6s;
+      }
+      &.open {
+        transform: translateY(0);
+      }
+      @include breakpoint(550px) {
+        margin-top: 10rem;
+      }
+    }
+  }
+}
