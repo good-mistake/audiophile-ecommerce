@@ -8,11 +8,12 @@ nav {
     margin: 0 auto;
     width: 89%;
   }
-  @include breakpoint(1200px) {
-    width: 77%;
-  }
+
   @include breakpoint(770px) {
     width: 93%;
+  }
+  @include breakpoint(1200px) {
+    width: 77%;
   }
 
   ul {
